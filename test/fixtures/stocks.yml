@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  quantity: 9.99
+  quantity: 10
   warehouse: one
   product: one
 
 two:
-  quantity: 9.99
+  quantity: 8
   warehouse: two
   product: two
