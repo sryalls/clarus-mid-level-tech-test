@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: MyString
-  description: MyString
+  code: ABC123
+  description: Widgets
 
 two:
-  code: MyString
-  description: MyString
+  code: DEF456
+  description: Dohickeys
+
+three:
+  code: GHI789
+  description: Thingamyjigs
