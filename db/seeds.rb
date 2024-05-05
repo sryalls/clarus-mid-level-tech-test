@@ -8,9 +8,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Product.find_or_create_by(description: 'Widgets', code: 'WDGT')
+widgets = Product.find_or_create_by(description: 'Widgets', code: 'WDGT')
 Product.find_or_create_by(description: 'Dohickeys', code: 'DHKY')
 Product.find_or_create_by(description: 'Thingamyjigs', code: 'TMYG')
 
-Warehouse.find_or_create_by(code: 'ABC123')
-Warehouse.find_or_create_by(code: 'XYZ789')
+warehouse = Warehouse.find_or_create_by(code: "ABC123")
+Warehouse.find_or_create_by(code: "XYZ789")
+
+Stock.find_or_create_by(product: widgets, warehouse: warehouse, quantity: 100)
+
+Order.find_or_create_by(product: widgets, warehouse: warehouse, quantity: 15, dispatched: true)
+Order.find_or_create_by(product: widgets, warehouse: warehouse, quantity: 12, dispatched: false)
