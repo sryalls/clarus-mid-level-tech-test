@@ -9,5 +9,5 @@ class Order < ApplicationRecord
   validates :quantity, presence: true
   validates :quantity, numericality: { greater_than: 0 }
 
-  # validates quantity is gt 0
+  include PendingOrdersConcern
 end

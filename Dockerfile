@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Adding gems
 COPY Gemfile* /app/
-RUN gem install bundler:2.2.21
+RUN gem install bundler:2.5.10
 RUN bundle install
 
 COPY . .

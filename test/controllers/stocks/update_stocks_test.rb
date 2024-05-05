@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class StocksControllerTest < ActionDispatch::IntegrationTest
+class UpdateStocksTest < ActionDispatch::IntegrationTest
   test 'Successfully update stock' do
     warehouse = Warehouse.find_by(code: 'ABC123')
     product = Product.find_by(code: 'ABC123')

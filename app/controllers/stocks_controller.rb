@@ -5,7 +5,7 @@ class StocksController < ApplicationController
 
   # GET /stocks
   def index
-    @stocks = Stock.all
+    @stocks = Stock.stock_levels
 
     render json: @stocks
   end

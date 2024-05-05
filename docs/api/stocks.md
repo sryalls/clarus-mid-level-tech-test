@@ -23,5 +23,5 @@
 
 |type|code|data|description|
 |-|-|-|-|
-|success| 200|`{['warehouse_id': [{'order_id', 'product_id', total, reserved}]]}`|'total' is the number of items currently in stock including 'reserved' items. <br><br>'reserved' is the number of items required to fulfill existing orders|
+|success| 200|`{[warehouse_code: [{'product_code': ABC123, 'total': 15, 'reserved': 5}]]}`|'total' is the number of items currently in stock including 'reserved' items. <br><br>'reserved' is the number of items required to fulfill existing orders|
 |server error| 500|||
