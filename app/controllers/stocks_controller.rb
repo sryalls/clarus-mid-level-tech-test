@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StocksController < ApplicationController
-  before_action :set_stock, only: %i[ show update destroy ]
+  before_action :set_stock, only: %i[show update destroy]
 
   # GET /stocks
   def index
@@ -21,16 +23,16 @@ class StocksController < ApplicationController
     begin
       Warehouse.find(warehouse_id)
     rescue ActiveRecord::RecordNotFound
-      return render json: { error: "warehouse #{ warehouse_id } does not exist" }, status: 412
+      return render json: { error: "warehouse #{warehouse_id} does not exist" }, status: 412
     end
 
     begin
       Product.find(product_id)
     rescue ActiveRecord::RecordNotFound
-      return render json: { error: "product #{ product_id } does not exist" }, status: 412
+      return render json: { error: "product #{product_id} does not exist" }, status: 412
     end
 
-    stock = Stock.find_or_create_by(warehouse_id: warehouse_id, product_id:product_id)
+    stock = Stock.find_or_create_by(warehouse_id:, product_id:)
     stock.update(quantity: (stock.quantity.to_f + params['quantity'].to_i))
     render json: :success
   end
