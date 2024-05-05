@@ -9,3 +9,9 @@ two:
   warehouse: one
   product: one
   dispatched: false
+
+three:
+  quantity: 1
+  warehouse: one
+  product: one
+  dispatched: false
