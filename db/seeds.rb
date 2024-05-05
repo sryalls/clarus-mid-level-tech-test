@@ -12,10 +12,10 @@ widgets = Product.find_or_create_by(description: 'Widgets', code: 'WDGT')
 Product.find_or_create_by(description: 'Dohickeys', code: 'DHKY')
 Product.find_or_create_by(description: 'Thingamyjigs', code: 'TMYG')
 
-warehouse = Warehouse.find_or_create_by(code: "ABC123")
-Warehouse.find_or_create_by(code: "XYZ789")
+warehouse = Warehouse.find_or_create_by(code: 'ABC123')
+Warehouse.find_or_create_by(code: 'XYZ789')
 
-Stock.find_or_create_by(product: widgets, warehouse: warehouse, quantity: 100)
+Stock.find_or_create_by(product: widgets, warehouse:, quantity: 100)
 
-Order.find_or_create_by(product: widgets, warehouse: warehouse, quantity: 15, dispatched: true)
-Order.find_or_create_by(product: widgets, warehouse: warehouse, quantity: 12, dispatched: false)
+Order.find_or_create_by(product: widgets, warehouse:, quantity: 15, dispatched: true)
+Order.find_or_create_by(product: widgets, warehouse:, quantity: 12, dispatched: false)
