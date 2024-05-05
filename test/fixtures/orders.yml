@@ -1,0 +1,11 @@
+one:
+  quantity: 2
+  warehouse: one
+  product: one
+  dispatched: true
+
+two:
+  quantity: 3
+  warehouse: one
+  product: one
+  dispatched: false
