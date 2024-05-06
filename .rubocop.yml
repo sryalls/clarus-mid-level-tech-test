@@ -1,6 +1,7 @@
 AllCops:
   Exclude: 
     - bin/*
+    - vendor/**/*.rb # or vendor/bundle/**/*
 
 Style/Documentation:
   Enabled: false
