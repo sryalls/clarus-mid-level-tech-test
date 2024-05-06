@@ -5,7 +5,7 @@ module PendingOrdersConcern
 
   class_methods do
     def pending(warehouse_id, product_id)
-      Order.where(warehouse_id:, product_id:, dispatched: false).sum(:quantity)
+      Stock.where(warehouse_id:, product_id:, reserved: true).count
     end
   end
 end

@@ -13,7 +13,10 @@ class StockLevelsTest < ActiveSupport::TestCase
     inventory = StockLevelsDummy.stock_levels
 
     assert_equal inventory,
-                 [{ 'ABC123' => [{ product_code: 'ABC123', total: 10, reserved: 4 }] },
-                  { 'XYZ789' => [{ product_code: 'DEF456', total: 8, reserved: 0 }] }]
+                 {
+                   'ABC123' => [{ product_code: 'DEF456', total: 1, reserved: 0 },
+                                { product_code: 'ABC123', total: 5,
+                                  reserved: 4 }], 'XYZ789' => [{ product_code: 'DEF456', total: 1, reserved: 0 }]
+                 }
   end
 end

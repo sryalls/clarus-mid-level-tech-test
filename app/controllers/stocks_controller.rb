@@ -31,9 +31,13 @@ class StocksController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       return render json: { error: "product #{product_id} does not exist" }, status: 412
     end
-
-    stock = Stock.find_or_create_by(warehouse_id:, product_id:)
-    stock.update(quantity: (stock.quantity.to_f + params['quantity'].to_i))
+    begin
+      pp(params['quantity'])
+      quantity = Integer(params['quantity'])
+    rescue ArgumentError
+      return render json: { error: "Quantity must be an integer" }, status: 400
+    end
+    Stock.intake(warehouse_id, product_id, quantity)
     render json: :success
   end
 

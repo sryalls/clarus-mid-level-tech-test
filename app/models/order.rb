@@ -3,6 +3,7 @@
 class Order < ApplicationRecord
   belongs_to :warehouse
   belongs_to :product
+  has_many :stocks
 
   validates :warehouse, presence: true
   validates :product, presence: true

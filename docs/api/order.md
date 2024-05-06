@@ -2,7 +2,7 @@
 
 ## Place
 ### Request
-`PUT /order/:warehouse_id:/:product_id/:quantity`
+`PUT /orders/:warehouse_id:/:product_id/:quantity`
 
 ### Responses
 
