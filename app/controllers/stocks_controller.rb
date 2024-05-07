@@ -36,8 +36,8 @@ class StocksController < ApplicationController
     rescue ArgumentError
       return render json: { error: 'Quantity must be an integer' }, status: 400
     end
-    Stock.intake(warehouse_id, product_id, quantity)
-    render json: :success
+    job_id = StockIntakeJob.perform_later(warehouse_id, product_id, quantity)
+    render json: { job_id: }
   end
 
   private

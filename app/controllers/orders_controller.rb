@@ -23,11 +23,8 @@ class OrdersController < ApplicationController
       return render json: { error: 'Quantity must be an integer' }, status: 400
     end
 
-    if OrderCreator.call(warehouse_id, product_id, quantity)
-      render json: :success
-    else
-      render json: { error: 'The ordered product has fewer items in storage than has been ordered. Order not placed.' },
-             status: 202
-    end
+    job_id = PlaceOrderJob.perform_later(warehouse_id, product_id, quantity)
+
+    render json: { job_id: }
   end
 end

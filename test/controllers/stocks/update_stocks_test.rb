@@ -11,22 +11,8 @@ class UpdateStocksTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, status
 
-    stock_count = Stock.where(warehouse_id: warehouse.id, product_id: product.id).count
-
-    assert_equal stock_count, 11
-  end
-
-  test 'Successfully update new stock in warehouse' do
-    warehouse = Warehouse.find_by(code: 'ABC123')
-    product = Product.find_by(code: 'GHI789')
-
-    put "/stocks/#{warehouse.id}/#{product.id}/5"
-
-    assert_equal 200, status
-
-    stock_count = Stock.where(warehouse_id: warehouse.id, product_id: product.id).count
-
-    assert_equal stock_count, 5
+    assert_includes JSON.parse(body).keys, 'job_id'
+    assert_not_nil JSON.parse(body)['job_id']
   end
 
   test 'gracefully return for not found warehouse' do
@@ -58,5 +44,4 @@ class UpdateStocksTest < ActionDispatch::IntegrationTest
     assert_equal 400, status
     assert_equal 'Quantity must be an integer', JSON.parse(body)['error']
   end
-
 end
