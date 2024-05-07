@@ -27,8 +27,10 @@ module StockLevelsConcern
     end
 
     def intake(warehouse_id, product_id, quantity)
-      quantity.times do
-        Stock.create!(warehouse_id:, product_id:)
+      ActiveRecord::Base.transaction do
+        quantity.times do
+          Stock.create!(warehouse_id:, product_id:)
+        end
       end
     end
   end

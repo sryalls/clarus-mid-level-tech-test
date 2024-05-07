@@ -12,10 +12,12 @@ class OrderCreator
   end
 
   def call
-    return false unless verify_stock
+    ActiveRecord::Base.transaction do
+      return false unless verify_stock
 
-    create_order
-    @order.id
+      create_order
+      @order.id
+    end
   end
 
   private
