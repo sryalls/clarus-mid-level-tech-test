@@ -11,8 +11,9 @@
 |success| 200||
 |server error| 500||
 |warehouse not found|412| The spefified warehouse does not exist|
-|product not found| 412 | The ordered product does not exist in the inventory for the speficied warehouse. Takes precidence over insufficient stock. Order fails for all items in order.|
-|insufficient stock| 202 | The ordered products has fewer items in storage than has been ordered. Order fails for all items in the order.|
+|product not found| 412 | The ordered product does not exist in the inventory for the speficied warehouse. Takes precidence over insufficient stock.|
+|insufficient stock| 202 | The ordered product has fewer items in storage than has been ordered. Order not placed.|
+|Non integer quantitiy| 400| Quantity must be an integer|
 
 ## Dispatch
 ### Request

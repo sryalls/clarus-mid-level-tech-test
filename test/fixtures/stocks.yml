@@ -12,6 +12,10 @@ three:
   warehouse: one
   product: two
 
+four:
+  warehouse: one
+  product: one
+
 reserved_one:
   warehouse: one
   product: one

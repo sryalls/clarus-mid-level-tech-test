@@ -13,7 +13,7 @@ class UpdateStocksTest < ActionDispatch::IntegrationTest
 
     stock_count = Stock.where(warehouse_id: warehouse.id, product_id: product.id).count
 
-    assert_equal stock_count, 10
+    assert_equal stock_count, 11
   end
 
   test 'Successfully update new stock in warehouse' do
