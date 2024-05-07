@@ -32,7 +32,6 @@ class StocksController < ApplicationController
       return render json: { error: "product #{product_id} does not exist" }, status: 412
     end
     begin
-      pp(params['quantity'])
       quantity = Integer(params['quantity'])
     rescue ArgumentError
       return render json: { error: "Quantity must be an integer" }, status: 400
