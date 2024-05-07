@@ -11,17 +11,8 @@ class CreateOrderControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, status
 
-  end
-
-  test 'order too many items' do
-    warehouse = Warehouse.find_by(code: 'ABC123')
-    product = Product.find_by(code: 'ABC123')
-
-    put "/orders/#{warehouse.id}/#{product.id}/3"
-
-    assert_equal 202, status
-    assert_equal 'The ordered product has fewer items in storage than has been ordered. Order not placed.', JSON.parse(body)['error']
-
+    assert_includes JSON.parse(body).keys, 'job_id'
+    assert_not_nil JSON.parse(body)['job_id']
   end
 
   test 'non numeric quantity' do
@@ -53,5 +44,4 @@ class CreateOrderControllerTest < ActionDispatch::IntegrationTest
     assert_equal 412, status
     assert_equal 'product 000000001 does not exist', JSON.parse(body)['error']
   end
-
 end

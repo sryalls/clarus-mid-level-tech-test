@@ -8,11 +8,10 @@
 
 |type|code|description|
 |-|-|-|
-|success| 200||
+|success| 200| `{ job_id: '1232131' }`|
 |server error| 500||
 |warehouse not found|412| The spefified warehouse does not exist|
-|product not found| 412 | The ordered product does not exist in the inventory for the speficied warehouse. Takes precidence over insufficient stock.|
-|insufficient stock| 202 | The ordered product has fewer items in storage than has been ordered. Order not placed.|
+|product not found| 412 | The ordered product does not exist in the inventory for the speficied warehouse.|
 |Non integer quantitiy| 400| Quantity must be an integer|
 
 ## Dispatch

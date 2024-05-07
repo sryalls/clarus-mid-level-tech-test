@@ -16,7 +16,8 @@ class StockLevelsTest < ActiveSupport::TestCase
                  {
                    'ABC123' => [{ product_code: 'DEF456', total: 1, unreserved: 1, reserved: 0 },
                                 { product_code: 'ABC123', total: 6, unreserved: 2,
-                                  reserved: 4 }], 'XYZ789' => [{ product_code: 'DEF456', total: 1, unreserved: 1, reserved: 0 }]
+                                  reserved: 4 }],
+                   'XYZ789' => [{ product_code: 'DEF456', total: 1, unreserved: 1, reserved: 0 }]
                  }
   end
 end

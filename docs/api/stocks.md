@@ -9,7 +9,7 @@
 
 |type|code|description|
 |-|-|-|
-|success| 200||
+|success| 200|`{ job_id: '1232131' }`|
 |server error| 500||
 |warehouse not found|412| The spefified warehouse does not exist|
 |product not found| 412 | The ordered product does not exist in the inventory for the speficied warehouse.|

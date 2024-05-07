@@ -28,7 +28,6 @@ class OrderCreator
   end
 
   def create_order
-    # @todo - wrap this in a transaction and active job to avoid race conditins
     @order = Order.create(warehouse_id: @warehouse_id, product_id: @product_id, quantity: @quantity)
     allocate_stocks
   end
