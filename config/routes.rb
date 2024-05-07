@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   put '/stocks/:warehouse_id/:product_id/:quantity', to: 'stocks#intake'
 
-  put '/orders/:warehouse_id/:product_id/:quantity', to: 'orders#place'
+  put '/orders/:warehouse_id/:product_id/:quantity', to: 'orders#create'
   resources :warehouses
   resources :products
 end
