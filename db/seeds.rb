@@ -15,7 +15,13 @@ Product.find_or_create_by(description: 'Thingamyjigs', code: 'TMYG')
 warehouse = Warehouse.find_or_create_by(code: 'ABC123')
 Warehouse.find_or_create_by(code: 'XYZ789')
 
-Stock.find_or_create_by(product: widgets, warehouse:, quantity: 100)
+100.times do
+  Stock.create(product: widgets, warehouse:)
+end
 
 Order.find_or_create_by(product: widgets, warehouse:, quantity: 15, dispatched: true)
-Order.find_or_create_by(product: widgets, warehouse:, quantity: 12, dispatched: false)
+order2 = Order.find_or_create_by(product: widgets, warehouse:, quantity: 12, dispatched: false)
+
+12.times do
+  Stock.create(product: widgets, warehouse:, order_id: order2.id, reserved: true)
+end

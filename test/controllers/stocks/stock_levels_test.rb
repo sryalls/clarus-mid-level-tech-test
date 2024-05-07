@@ -7,7 +7,11 @@ class StockLevelsTest < ActionDispatch::IntegrationTest
     get stocks_path
 
     assert_equal 200, status
-    assert_equal body, [{ 'ABC123' => [{ product_code: 'ABC123', total: '10.0', reserved: '4.0' }] },
-                        { 'XYZ789' => [{ product_code: 'DEF456', total: '8.0', reserved: '0.0' }] }].to_json
+    assert_equal body,
+                 {
+                   'ABC123' => [{ product_code: 'DEF456', total: 1, reserved: 0 },
+                                { product_code: 'ABC123', total: 5,
+                                  reserved: 4 }], 'XYZ789' => [{ product_code: 'DEF456', total: 1, reserved: 0 }]
+                 }.to_json
   end
 end

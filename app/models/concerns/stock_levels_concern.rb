@@ -5,19 +5,25 @@ module StockLevelsConcern
 
   class_methods do
     def stock_levels
-      levels = []
-      Stock.all.uniq.pluck(:warehouse_id).each do |warehouse_id|
-        warehouse_code = Warehouse.find(warehouse_id).code
-        warehouse_entry = (Hash[warehouse_code, []])
-        Stock.where(warehouse_id:).each do |stock|
-          warehouse_entry[warehouse_code].append({ 'product_code': Product.find(stock.product_id).code,
-                                                   'total': stock.quantity,
-                                                   'reserved': Order.pending(warehouse_id, stock.product_id) })
-        end
-        levels.append(warehouse_entry)
+      levels = {}
+      Stock.select(:warehouse_id, :product_id).distinct.each do |stock|
+        warehouse_code = Warehouse.find(stock.warehouse_id).code
+        levels[warehouse_code] = [] unless levels.keys.include? warehouse_code
+
+        reserved = Stock.where(reserved: true, product_id: stock.product_id, warehouse_id: stock.warehouse_id).count
+        unreserved = Stock.where(reserved: false, product_id: stock.product_id, warehouse_id: stock.warehouse_id).count
+        levels[warehouse_code].append({ 'product_code': Product.find(stock.product_id).code,
+                                        'total': unreserved + reserved,
+                                        'reserved': reserved })
       end
 
       levels
+    end
+
+    def intake(warehouse_id, product_id, quantity)
+      quantity.times do
+        Stock.create!(warehouse_id:, product_id:)
+      end
     end
   end
 end

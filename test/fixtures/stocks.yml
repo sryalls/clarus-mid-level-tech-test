@@ -1,11 +1,37 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  quantity: 10
   warehouse: one
   product: one
 
 two:
-  quantity: 8
   warehouse: two
   product: two
+
+three: 
+  warehouse: one
+  product: two
+
+reserved_one:
+  warehouse: one
+  product: one
+  reserved: true
+  order: two
+
+reserved_two:
+  warehouse: one
+  product: one
+  reserved: true 
+  order: two
+
+reserved_three:
+  warehouse: one
+  product: one
+  reserved: true
+  order: two
+
+reserved_four:
+  warehouse: one
+  product: one
+  reserved: true
+  order: three
