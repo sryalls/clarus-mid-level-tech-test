@@ -10,11 +10,6 @@ class StocksController < ApplicationController
     render json: @stocks
   end
 
-  # GET /stocks/1
-  def show
-    render json: @stock
-  end
-
   # PUT /stocks/:warehouse_id/:product_id/:quantity
   def intake
     warehouse_id = params['warehouse_id']
