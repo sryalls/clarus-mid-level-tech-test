@@ -20,22 +20,22 @@ reserved_one:
   warehouse: one
   product: one
   reserved: true
-  order: two
+  order_id: 2
 
 reserved_two:
   warehouse: one
   product: one
   reserved: true 
-  order: two
+  order_id: 2
 
 reserved_three:
   warehouse: one
   product: one
   reserved: true
-  order: two
+  order_id: 2 
 
 reserved_four:
   warehouse: one
   product: one
   reserved: true
-  order: three
+  order_id: 3
