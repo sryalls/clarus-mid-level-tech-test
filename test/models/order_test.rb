@@ -34,4 +34,9 @@ class OrderTest < ActiveSupport::TestCase
     order = Order.create(warehouse:, product:, quantity: -2)
     assert_not order.save
   end
+
+  test 'Order can dispatch' do
+    exception = assert_raises(Order::OrderDispatchError) { OrdersDummy.dispatch '1' }
+    assert_equal(exception.message, 'Order 1 has already been dispatched')
+  end
 end

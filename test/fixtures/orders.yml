@@ -1,16 +1,19 @@
 one:
+  id: 1
   quantity: 2
   warehouse: one
   product: one
   dispatched: true
 
 two:
+  id: 2
   quantity: 3
   warehouse: one
   product: one
   dispatched: false
 
 three:
+  id: 3
   quantity: 1
   warehouse: one
   product: one

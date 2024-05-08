@@ -9,4 +9,6 @@ class Order < ApplicationRecord
   validates :product, presence: true
   validates :quantity, presence: true
   validates :quantity, numericality: { greater_than: 0 }
+
+  include OrdersConcern
 end
